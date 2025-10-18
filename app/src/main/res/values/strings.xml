@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Safety App</string>
+    <string name="sos_button_text">BIG SOS BUTTON</string>
+    <string name="sos_description">Tap for Emergency</string>
+    <string name="voice_feedback">Voice Feedback</string>
+    <string name="haptic_feedback">Haptic Feedback</string>
+    <string name="map_preview">Map Preview</string>
+    <string name="your_location">Your Location</string>
+    <string name="fake_call">Fake Call</string>
+    <string name="emergency_contacts">Emergency Contacts</string>
+    <string name="safety_tips">Safety Tips</string>
+    <string name="profile_name">Jane Smith</string>
+    <string name="profile_email">jane@email.com</string>
+    <string name="edit_button">Edit</string>
+    <string name="instant_access">Instant access to safety tools and info</string>
+    <string name="dashboard_title">Your Safety Dashboard</string>
+</resources>

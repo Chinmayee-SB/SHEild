@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- circular background -->
+    <item>
+        <shape android:shape="oval">
+            <size android:width="24dp" android:height="24dp" />
+            <solid android:color="@color/purple" />
+        </shape>
+    </item>
+
+    <!-- bulb top (rounded) -->
+    <item android:top="4dp" android:left="6dp" android:right="6dp">
+        <shape android:shape="oval">
+            <size android:width="12dp" android:height="10dp" />
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+
+    <!-- bulb base -->
+    <item android:top="13dp" android:left="9dp" android:right="9dp">
+        <shape>
+            <size android:width="6dp" android:height="4dp" />
+            <solid android:color="@color/white" />
+            <corners android:radius="1dp" />
+        </shape>
+    </item>
+
+    <!-- filament / tiny line -->
+    <item android:top="11dp" android:left="11dp" android:right="11dp">
+        <shape>
+            <size android:width="2dp" android:height="2dp" />
+            <solid android:color="@color/purple" />
+        </shape>
+    </item>
+</layer-list>

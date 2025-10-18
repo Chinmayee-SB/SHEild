@@ -1,0 +1,11 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="250dp"
+    android:viewportWidth="400"
+    android:viewportHeight="250">
+
+    <!-- Wave path matching your design -->
+    <path
+        android:fillColor="#F5E8D8"
+        android:pathData="M0,0 L400,0 L400,100 Q350,50 300,80 Q250,110 200,90 Q150,70 100,100 Q50,130 0,100 Z" />
+</vector>

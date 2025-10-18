@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- circular background -->
+    <item>
+        <shape android:shape="oval">
+            <size android:width="24dp" android:height="24dp" />
+            <solid android:color="@color/blue" />
+        </shape>
+    </item>
+
+    <!-- head -->
+    <item android:top="3dp" android:left="8dp" android:right="8dp">
+        <shape android:shape="oval">
+            <size android:width="8dp" android:height="8dp" />
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+
+    <!-- shoulders/body -->
+    <item android:top="13dp" android:left="5dp" android:right="5dp">
+        <shape>
+            <size android:width="14dp" android:height="7dp" />
+            <solid android:color="@color/white" />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+</layer-list>

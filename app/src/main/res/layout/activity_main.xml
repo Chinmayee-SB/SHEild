@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_cream">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/gradient_header"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Your Safety Dashboard"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circle_profile"
+                android:contentDescription="Profile Icon" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instant access to safety tools and info"
+            android:textSize="13sp"
+            android:textColor="@color/text_light" />
+    </LinearLayout>
+
+    <!-- ScrollView for main content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="80dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:spacing="20dp">
+
+            <!-- A. SOS Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp">
+
+                <!-- SOS Circular Button -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btn_sos"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:text="SOS"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/button_sos_circular"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        android:shadowColor="@color/shadow"
+                        android:elevation="8dp" />
+                </FrameLayout>
+
+                <!-- Feedback Options -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:spacing="12dp"
+                    android:layout_marginTop="12dp">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="Voice Feedback"
+                        android:textSize="11sp"
+                        android:background="@drawable/button_secondary"
+                        android:textColor="@color/text_dark" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="Haptic Feedback"
+                        android:textSize="11sp"
+                        android:background="@drawable/button_secondary"
+                        android:textColor="@color/text_dark" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- B. Map Preview -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Location"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_dark"
+                    android:layout_marginBottom="10dp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:background="@drawable/map_preview_bg"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Map Preview"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_location_pin"
+                        android:layout_gravity="center"
+                        android:contentDescription="Location Pin" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- C. Quick Access Buttons/Cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quick Access"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_dark"
+                    android:layout_marginBottom="10dp" />
+
+                <Button
+                    android:id="@+id/btn_fake_call"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="📞 Fake Call"
+                    android:textSize="13sp"
+                    android:textAlignment="textStart"
+                    android:paddingStart="16dp"
+                    android:background="@drawable/button_quick_access"
+                    android:textColor="@color/text_dark"
+                    android:layout_marginBottom="8dp" />
+
+                <Button
+                    android:id="@+id/btn_emergency_contacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="👥 Emergency Contacts"
+                    android:textSize="13sp"
+                    android:textAlignment="textStart"
+                    android:paddingStart="16dp"
+                    android:background="@drawable/button_quick_access"
+                    android:textColor="@color/text_dark"
+                    android:layout_marginBottom="8dp" />
+
+                <Button
+                    android:id="@+id/btn_safe_tips"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="💡 Safety Tips"
+                    android:textSize="13sp"
+                    android:textAlignment="textStart"
+                    android:paddingStart="16dp"
+                    android:background="@drawable/button_quick_access"
+                    android:textColor="@color/text_dark" />
+            </LinearLayout>
+
+            <!-- D. Profile Preview -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_dark"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/card_profile_bg"
+                    android:padding="12dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/circle_profile"
+                        android:contentDescription="Profile Picture" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jane Smith"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_dark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="jane@email.com"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_gray"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="36dp"
+                        android:text="Edit"
+                        android:textSize="11sp"
+                        android:background="@drawable/logout_button_background"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottom_nav_bg"
+        app:menu="@menu/bottom_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@drawable/nav_item_color"
+        app:itemTextColor="@drawable/nav_item_color" />
+</LinearLayout>
