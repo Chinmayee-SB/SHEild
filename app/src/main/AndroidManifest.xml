@@ -71,9 +71,7 @@
             android:name=".CommunityActivity"
             android:exported="false" />
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBxqkj7wgaykBQKeWz9OMDOWi6abRBOnnM" /> <!-- COMMUNITY, CALL, OTHER ACTIVITIES -->
+         <!-- COMMUNITY, CALL, OTHER ACTIVITIES -->
         <!-- <activity -->
         <!-- android:name=".CommunityActivity" -->
         <!-- android:exported="false" /> -->
