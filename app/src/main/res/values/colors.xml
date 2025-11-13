@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
+
 <resources>
     <color name="background_cream">#FFFBF7</color>
     <color name="primary_pink">#C7466D</color>
@@ -14,4 +15,13 @@
     <color name="light_bg">#F9F4F0</color>
     <color name="shadow">#33000000</color>
     <color name="accent_peach">#F4A99C</color>
+    <color name="rose">#F03E3E</color>
+    <color name="blue">#3EBEF0</color>
+    <color name="purple">#9C27F5</color>
+    <color name="gray800">#1F2937</color>
+    <color name="gray700">#374151</color>
+    <color name="gray600">#4B5563</color>
+    <color name="gray500">#6B7280</color>
+    <color name="rose300">#FBCFE8</color> <!-- border color similar to rose-300 -->
+
 </resources>

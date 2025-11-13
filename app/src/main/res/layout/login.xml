@@ -106,21 +106,29 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:text="Forgot Password?"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPassword" />
 
     <!-- Register Text -->
+
+
     <TextView
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="56dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:text="New Here? Register"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

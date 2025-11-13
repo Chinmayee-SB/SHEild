@@ -9,214 +9,178 @@
     android:background="#F5E8D8"
     tools:context=".ProfileActivity">
 
-        <!-- Profile Title -->
-        <TextView
-            android:id="@+id/tvProfileTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Profile"
-            android:textColor="#000000"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Profile Title -->
+    <TextView
+        android:id="@+id/tvProfileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Profile"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Profile Image Container -->
-        <FrameLayout
-            android:id="@+id/profileImageContainer"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvProfileTitle">
+    <!-- Profile Image Container -->
+    <FrameLayout
+        android:id="@+id/profileImageContainer"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProfileTitle">
 
-            <!-- Circular Background -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/circle_background_purple" />
+        <!-- Circular Background -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circle_background_purple" />
 
-            <!-- Profile Image -->
-            <ImageView
-                android:id="@+id/ivProfileImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="Profile Picture"
-                android:padding="24dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/avatar_placeholder" />
+        <!-- Profile Image (clickable to change picture) -->
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Profile Picture"
+            android:padding="24dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/avatar_placeholder"
+            android:clickable="true"
+            android:focusable="true" />
 
-            <!-- Edit Icon -->
-            <ImageButton
-                android:id="@+id/btnEditProfile"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_gravity="bottom|end"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/circle_background_white"
-                android:contentDescription="Edit Profile"
-                android:padding="6dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_edit" />
-        </FrameLayout>
+        <!-- Edit Icon (toggles edit mode) -->
+        <ImageButton
+            android:id="@+id/btnEditProfile"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/circle_background_white"
+            android:contentDescription="Edit Profile"
+            android:padding="6dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_edit" />
+    </FrameLayout>
 
-        <!-- Name Label -->
-        <TextView
-            android:id="@+id/tvNameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:text="Name"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileImageContainer" />
+    <!-- Name Label -->
+    <TextView
+        android:id="@+id/tvNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Name"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileImageContainer" />
 
-        <!-- Name Field -->
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/rounded_field_background"
-            android:gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="Marie Antoinette"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNameLabel" />
+    <!-- Name Field (editable) -->
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_field_background"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:hint="Your name"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNameLabel" />
 
-        <!-- Email Label -->
-        <TextView
-            android:id="@+id/tvEmailLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:text="Email"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvName" />
+    <!-- Email Label -->
+    <TextView
+        android:id="@+id/tvEmailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Email"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etName" />
 
-        <!-- Email Field -->
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/rounded_field_background"
-            android:gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="marieantoinette@gmail.com"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEmailLabel" />
+    <!-- Email Field (editable) -->
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_field_background"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:hint="you@example.com"
+        android:inputType="textEmailAddress"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="16sp"
 
-        <!-- Log Out Button -->
-        <Button
-            android:id="@+id/btnLogOut"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/logout_button_background"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp"
-            android:text="Log Out"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
-            app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailLabel" />
 
-        <!-- Bottom Navigation Bar -->
-        <LinearLayout
-            android:id="@+id/bottomNavigation"
-            android:layout_width="0dp"
-            android:layout_height="72dp"
-            android:background="#C75578"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+    <!-- Save Button (visible while editing) -->
+    <Button
+        android:id="@+id/btnSaveProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
 
-            <!-- Home Icon -->
-            <ImageButton
-                android:id="@+id/btnNavHome"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Home"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_home" />
+    <!-- Log Out Button -->
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:background="@drawable/logout_button_background"
+        android:backgroundTint="#F5E8D8"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.823" />
 
-            <!-- Grid Icon -->
-            <ImageButton
-                android:id="@+id/btnNavGrid"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Grid"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_grid" />
-
-            <!-- Map Icon -->
-            <ImageButton
-                android:id="@+id/btnNavMap"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Map"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_map" />
-
-            <!-- Book Icon -->
-            <ImageButton
-                android:id="@+id/btnNavBook"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Book"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_book" />
-
-            <!-- Profile Icon -->
-            <ImageButton
-                android:id="@+id/btnNavProfile"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Profile"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_profile_selected" />
-        </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#A64D79"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/background_cream"
+        app:itemTextColor="@color/background_cream"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

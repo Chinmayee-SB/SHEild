@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/shareLocationRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share current location"
+        android:textSize="20sp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etContactNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter family member number (optional)"
+        android:inputType="phone"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnGetAndShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get location and Share"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnShareChooser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share with other apps (chooser)"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status: idle"
+        android:paddingTop="8dp"/>
+</LinearLayout>

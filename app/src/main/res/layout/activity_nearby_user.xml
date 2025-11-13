@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F7">
+
+    <!-- Wave Animation Circles (4 waves) -->
+    <View
+        android:id="@+id/wave4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/wave_circle"
+        android:alpha="0"
+        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@id/sosButton"
+        app:layout_constraintBottom_toBottomOf="@id/sosButton"
+        app:layout_constraintStart_toStartOf="@id/sosButton"
+        app:layout_constraintEnd_toEndOf="@id/sosButton" />
+
+    <View
+        android:id="@+id/wave3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/wave_circle"
+        android:alpha="0"
+        app:layout_constraintWidth_percent="0.75"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@id/sosButton"
+        app:layout_constraintBottom_toBottomOf="@id/sosButton"
+        app:layout_constraintStart_toStartOf="@id/sosButton"
+        app:layout_constraintEnd_toEndOf="@id/sosButton" />
+
+    <View
+        android:id="@+id/wave2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/wave_circle"
+        android:alpha="0"
+        app:layout_constraintWidth_percent="0.58"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@id/sosButton"
+        app:layout_constraintBottom_toBottomOf="@id/sosButton"
+        app:layout_constraintStart_toStartOf="@id/sosButton"
+        app:layout_constraintEnd_toEndOf="@id/sosButton" />
+
+    <View
+        android:id="@+id/wave1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/wave_circle"
+        android:alpha="0"
+        app:layout_constraintWidth_percent="0.48"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@id/sosButton"
+        app:layout_constraintBottom_toBottomOf="@id/sosButton"
+        app:layout_constraintStart_toStartOf="@id/sosButton"
+        app:layout_constraintEnd_toEndOf="@id/sosButton" />
+
+    <!-- Outer Circle (Border effect) -->
+    <View
+        android:id="@+id/outerCircle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/outer_circle_border"
+        app:layout_constraintWidth_percent="0.42"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- SOS Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/sosButton"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:fabCustomSize="200dp"
+        app:maxImageSize="0dp"
+        app:backgroundTint="#A64D79"
+        app:tint="@android:color/white"
+        app:elevation="8dp"
+        app:pressedTranslationZ="12dp"
+        app:rippleColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Count Circle (like in your image showing "02") -->
+    <View
+        android:id="@+id/countCircle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/count_circle_bg"
+        app:layout_constraintTop_toTopOf="@id/sosButton"
+        app:layout_constraintBottom_toBottomOf="@id/sosButton"
+        app:layout_constraintStart_toStartOf="@id/sosButton"
+        app:layout_constraintEnd_toEndOf="@id/sosButton" />
+
+    <!-- SOS Text -->
+    <TextView
+        android:id="@+id/sosText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="9dp"
+        android:text="SOS"
+        android:textColor="@android:color/white"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        app:layout_constraintBottom_toBottomOf="@id/sosButton"
+        app:layout_constraintEnd_toEndOf="@id/sosButton"
+        app:layout_constraintStart_toStartOf="@id/sosButton"
+        app:layout_constraintTop_toTopOf="@id/sosButton" />
+
+    <!-- Instruction Text -->
+    <TextView
+        android:id="@+id/instructionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sharing Location"
+        android:textSize="16sp"
+        android:textColor="#A64D79"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/sosButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Status Text (optional) -->
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ready"
+        android:textSize="14sp"
+        android:textColor="#999999"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/instructionText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:background="#E5E7EB">-->
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:padding="16dp">-->
+
+    <!--        <com.google.android.material.card.MaterialCardView-->
+    <!--            android:id="@+id/mainCard"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            app:cardCornerRadius="24dp"-->
+    <!--            app:cardElevation="8dp"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:background="@drawable/gradient_background"-->
+    <!--                android:orientation="vertical"-->
+    <!--                android:padding="24dp">-->
+
+    <!--                &lt;!&ndash; Header Text &ndash;&gt;-->
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tvHeader"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:text="Xplafe Detail"-->
+    <!--                    android:textColor="#9CA3AF"-->
+    <!--                    android:textSize="14sp"-->
+    <!--                    android:layout_marginBottom="16dp" />-->
+
+    <!--                &lt;!&ndash; Location Card &ndash;&gt;-->
+    <!--                <com.google.android.material.card.MaterialCardView-->
+    <!--                    android:id="@+id/locationCard"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    app:cardCornerRadius="16dp"-->
+    <!--                    app:cardElevation="2dp"-->
+    <!--                    app:cardBackgroundColor="#FFFBEB"-->
+    <!--                    android:layout_marginBottom="24dp">-->
+
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:orientation="vertical"-->
+    <!--                        android:padding="16dp">-->
+
+    <!--                        &lt;!&ndash; Title Row &ndash;&gt;-->
+    <!--                        <LinearLayout-->
+    <!--                            android:layout_width="match_parent"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:gravity="center_vertical"-->
+    <!--                            android:orientation="horizontal">-->
+
+    <!--                            <ImageButton-->
+    <!--                                android:id="@+id/btnBack"-->
+    <!--                                android:layout_width="36dp"-->
+    <!--                                android:layout_height="36dp"-->
+    <!--                                android:background="?attr/selectableItemBackgroundBorderless"-->
+    <!--                                android:contentDescription="Back"-->
+    <!--                                android:src="@drawable/ic_chevron_left" />-->
+
+    <!--                            <TextView-->
+    <!--                                android:id="@+id/tvNearbyTitle"-->
+    <!--                                android:layout_width="0dp"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:layout_weight="1"-->
+    <!--                                android:gravity="center"-->
+    <!--                                android:text="Nearby Xplafé"-->
+    <!--                                android:textColor="#1F2937"-->
+    <!--                                android:textSize="18sp"-->
+    <!--                                android:textStyle="bold" />-->
+
+    <!--                            <View-->
+    <!--                                android:layout_width="36dp"-->
+    <!--                                android:layout_height="36dp" />-->
+    <!--                        </LinearLayout>-->
+
+    <!--                        &lt;!&ndash; Location Row &ndash;&gt;-->
+    <!--                        <LinearLayout-->
+    <!--                            android:layout_width="match_parent"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:layout_marginTop="12dp"-->
+    <!--                            android:gravity="center_vertical"-->
+    <!--                            android:orientation="horizontal">-->
+
+    <!--                            <TextView-->
+    <!--                                android:id="@+id/tvLocation"-->
+    <!--                                android:layout_width="0dp"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:layout_weight="1"-->
+    <!--                                android:text="Schindler's Street, New York"-->
+    <!--                                android:textColor="#4B5563"-->
+    <!--                                android:textSize="14sp" />-->
+
+    <!--                            <ImageView-->
+    <!--                                android:id="@+id/ivMapPin"-->
+    <!--                                android:layout_width="20dp"-->
+    <!--                                android:layout_height="20dp"-->
+    <!--                                android:contentDescription="Location"-->
+    <!--                                android:src="@drawable/ic_map_pin"-->
+    <!--                                app:tint="#F87171" />-->
+    <!--                        </LinearLayout>-->
+    <!--                    </LinearLayout>-->
+    <!--                </com.google.android.material.card.MaterialCardView>-->
+
+    <!--                &lt;!&ndash; Time Section &ndash;&gt;-->
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tvTimeLabel"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:text="Time"-->
+    <!--                    android:textColor="#78350F"-->
+    <!--                    android:textSize="16sp"-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    android:layout_marginBottom="12dp" />-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:orientation="horizontal"-->
+    <!--                    android:layout_marginBottom="24dp">-->
+
+    <!--                    &lt;!&ndash; From Time &ndash;&gt;-->
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="0dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_weight="1"-->
+    <!--                        android:layout_marginEnd="8dp"-->
+    <!--                        android:orientation="vertical">-->
+
+    <!--                        <TextView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:text="From"-->
+    <!--                            android:textColor="#4B5563"-->
+    <!--                            android:textSize="12sp"-->
+    <!--                            android:layout_marginBottom="4dp" />-->
+
+    <!--                        <com.google.android.material.textfield.TextInputLayout-->
+    <!--                            android:layout_width="match_parent"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"-->
+    <!--                            app:boxBackgroundColor="#FFFFFF"-->
+    <!--                            app:boxCornerRadiusTopStart="8dp"-->
+    <!--                            app:boxCornerRadiusTopEnd="8dp"-->
+    <!--                            app:boxCornerRadiusBottomStart="8dp"-->
+    <!--                            app:boxCornerRadiusBottomEnd="8dp"-->
+    <!--                            app:endIconMode="custom"-->
+    <!--                            app:endIconDrawable="@drawable/ic_calendar">-->
+
+    <!--                            <com.google.android.material.textfield.TextInputEditText-->
+    <!--                                android:id="@+id/etFromDate"-->
+    <!--                                android:layout_width="match_parent"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:inputType="none"-->
+    <!--                                android:text="21/2/2021 / 7:15"-->
+    <!--                                android:textColor="#374151"-->
+    <!--                                android:textSize="14sp" />-->
+    <!--                        </com.google.android.material.textfield.TextInputLayout>-->
+    <!--                    </LinearLayout>-->
+
+    <!--                    &lt;!&ndash; To Time &ndash;&gt;-->
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="0dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_weight="1"-->
+    <!--                        android:layout_marginStart="8dp"-->
+    <!--                        android:orientation="vertical">-->
+
+    <!--                        <TextView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:text="To"-->
+    <!--                            android:textColor="#4B5563"-->
+    <!--                            android:textSize="12sp"-->
+    <!--                            android:layout_marginBottom="4dp" />-->
+
+    <!--                        <com.google.android.material.textfield.TextInputLayout-->
+    <!--                            android:layout_width="match_parent"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"-->
+    <!--                            app:boxBackgroundColor="#FFFFFF"-->
+    <!--                            app:boxCornerRadiusTopStart="8dp"-->
+    <!--                            app:boxCornerRadiusTopEnd="8dp"-->
+    <!--                            app:boxCornerRadiusBottomStart="8dp"-->
+    <!--                            app:boxCornerRadiusBottomEnd="8dp"-->
+    <!--                            app:endIconMode="custom"-->
+    <!--                            app:endIconDrawable="@drawable/ic_calendar">-->
+
+    <!--                            <com.google.android.material.textfield.TextInputEditText-->
+    <!--                                android:id="@+id/etToDate"-->
+    <!--                                android:layout_width="match_parent"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:inputType="none"-->
+    <!--                                android:text="21/2/2021 / 7:15"-->
+    <!--                                android:textColor="#374151"-->
+    <!--                                android:textSize="14sp" />-->
+    <!--                        </com.google.android.material.textfield.TextInputLayout>-->
+    <!--                    </LinearLayout>-->
+    <!--                </LinearLayout>-->
+
+    <!--                &lt;!&ndash; Message Section &ndash;&gt;-->
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tvMessageLabel"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:text="Message"-->
+    <!--                    android:textColor="#78350F"-->
+    <!--                    android:textSize="16sp"-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    android:layout_marginBottom="12dp" />-->
+
+    <!--                <com.google.android.material.textfield.TextInputLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"-->
+    <!--                    app:boxBackgroundColor="#FFFFFF"-->
+    <!--                    app:boxCornerRadiusTopStart="16dp"-->
+    <!--                    app:boxCornerRadiusTopEnd="16dp"-->
+    <!--                    app:boxCornerRadiusBottomStart="16dp"-->
+    <!--                    app:boxCornerRadiusBottomEnd="16dp"-->
+    <!--                    android:layout_marginBottom="24dp">-->
+
+    <!--                    <com.google.android.material.textfield.TextInputEditText-->
+    <!--                        android:id="@+id/etMessage"-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:minHeight="200dp"-->
+    <!--                        android:gravity="top|start"-->
+    <!--                        android:hint="Enter your message..."-->
+    <!--                        android:inputType="textMultiLine"-->
+    <!--                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum dignissim odio nisi, semper magna et ultricies tempor interdum. A elementum viverra at pulvinar hendrerit id. Faucibus massa, ridiculus quis lectus commodo."-->
+    <!--                        android:textColor="#374151"-->
+    <!--                        android:textSize="14sp" />-->
+    <!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--                &lt;!&ndash; Contact Button &ndash;&gt;-->
+    <!--                <com.google.android.material.button.MaterialButton-->
+    <!--                    android:id="@+id/btnContact"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="56dp"-->
+    <!--                    android:text="Contact Her!"-->
+    <!--                    android:textColor="#FFFFFF"-->
+    <!--                    android:textSize="16sp"-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    app:cornerRadius="12dp"-->
+    <!--                    app:backgroundTint="#FB7185"-->
+    <!--                    android:elevation="4dp" />-->
+    <!--            </LinearLayout>-->
+    <!--        </com.google.android.material.card.MaterialCardView>-->
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--</ScrollView>-->

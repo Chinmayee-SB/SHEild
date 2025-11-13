@@ -1,282 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background_cream">
+    android:background="#FFF9F0"
+    tools:context=".MainActivity">
 
-    <!-- Header -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/gradient_header"
-        android:padding="16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Your Safety Dashboard"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white" />
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/circle_profile"
-                android:contentDescription="Profile Icon" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Instant access to safety tools and info"
-            android:textSize="13sp"
-            android:textColor="@color/text_light" />
-    </LinearLayout>
-
-    <!-- ScrollView for main content -->
-    <ScrollView
-        android:layout_width="match_parent"
+    <!-- Scrollable content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingBottom="80dp">
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp"
-            android:spacing="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="20dp">
 
-            <!-- A. SOS Section -->
+            <!-- Header Layout (major section 1) -->
             <LinearLayout
+                android:id="@+id/headerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="8dp">
-
-                <!-- SOS Circular Button -->
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:gravity="center">
-
-                    <Button
-                        android:id="@+id/btn_sos"
-                        android:layout_width="160dp"
-                        android:layout_height="160dp"
-                        android:text="SOS"
-                        android:textSize="36sp"
-                        android:textStyle="bold"
-                        android:background="@drawable/button_sos_circular"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center"
-                        android:shadowColor="@color/shadow"
-                        android:elevation="8dp" />
-                </FrameLayout>
-
-                <!-- Feedback Options -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:spacing="12dp"
-                    android:layout_marginTop="12dp">
-
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:text="Voice Feedback"
-                        android:textSize="11sp"
-                        android:background="@drawable/button_secondary"
-                        android:textColor="@color/text_dark" />
-
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:text="Haptic Feedback"
-                        android:textSize="11sp"
-                        android:background="@drawable/button_secondary"
-                        android:textColor="@color/text_dark" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- B. Map Preview -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Your Location"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_dark"
-                    android:layout_marginBottom="10dp" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:background="@drawable/map_preview_bg"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="Map Preview"
-                        android:scaleType="centerCrop" />
-
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_location_pin"
-                        android:layout_gravity="center"
-                        android:contentDescription="Location Pin" />
-                </FrameLayout>
-            </LinearLayout>
-
-            <!-- C. Quick Access Buttons/Cards -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Quick Access"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_dark"
-                    android:layout_marginBottom="10dp" />
-
-                <Button
-                    android:id="@+id/btn_fake_call"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="📞 Fake Call"
-                    android:textSize="13sp"
-                    android:textAlignment="textStart"
-                    android:paddingStart="16dp"
-                    android:background="@drawable/button_quick_access"
-                    android:textColor="@color/text_dark"
-                    android:layout_marginBottom="8dp" />
-
-                <Button
-                    android:id="@+id/btn_emergency_contacts"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="👥 Emergency Contacts"
-                    android:textSize="13sp"
-                    android:textAlignment="textStart"
-                    android:paddingStart="16dp"
-                    android:background="@drawable/button_quick_access"
-                    android:textColor="@color/text_dark"
-                    android:layout_marginBottom="8dp" />
-
-                <Button
-                    android:id="@+id/btn_safe_tips"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="💡 Safety Tips"
-                    android:textSize="13sp"
-                    android:textAlignment="textStart"
-                    android:paddingStart="16dp"
-                    android:background="@drawable/button_quick_access"
-                    android:textColor="@color/text_dark" />
-            </LinearLayout>
-
-            <!-- D. Profile Preview -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Profile"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_dark"
-                    android:layout_marginBottom="10dp" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
-                    android:background="@drawable/card_profile_bg"
-                    android:padding="12dp"
                     android:gravity="center_vertical">
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/circle_profile"
-                        android:contentDescription="Profile Picture" />
+                    <FrameLayout
+                        android:layout_width="40dp"
+                        android:layout_height="51dp"
+                        android:layout_marginEnd="8dp">
 
-                    <LinearLayout
+                        <ImageView
+                            android:id="@+id/logo_icon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="24dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_shield_outline"
+                            app:tint="#C64B6D" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SHEild"
+                        android:textColor="#A64D79"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/profileButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="58dp"
+                    android:backgroundTint="#F5E8D8"
+                    android:contentDescription="Profile"
+                    android:elevation="4dp"
+                    android:src="@drawable/outline_account_box_24"
+                    app:tint="@color/primary_pink" />
+            </LinearLayout>
+
+            <!-- spacing between major sections -->
+            <View android:layout_width="match_parent" android:layout_height="24dp"/>
+
+            <!-- Dashboard Titles (major section 2) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/dashboardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Safety Dashboard"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#3A2E39" />
+
+                <TextView
+                    android:id="@+id/dashboardSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Press button in case of emergency"
+                    android:textSize="13sp"
+                    android:textColor="#5C4B59"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="24dp"/>
+
+            <!-- SOS Button (major section 3) -->
+            <Button
+                android:id="@+id/sosButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:text="SOS"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="34sp"
+                android:backgroundTint="#A64D79"
+                android:elevation="8dp" />
+
+            <View android:layout_width="match_parent" android:layout_height="24dp"/>
+
+            <!-- Button Container (Fake Call) (major section 4) -->
+            <LinearLayout
+                android:id="@+id/buttonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/fakeCallLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="#FFFFFF"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:elevation="2dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="📞"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_marginEnd="12dp"/>
+
+                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginStart="12dp">
+                        android:text="Fake Call"
+                        android:textColor="#3A2E39"
+                        android:textSize="16sp"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Jane Smith"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/text_dark" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="jane@email.com"
-                            android:textSize="11sp"
-                            android:textColor="@color/text_gray"
-                            android:layout_marginTop="2dp" />
-                    </LinearLayout>
-
-                    <Button
-                        android:layout_width="50dp"
-                        android:layout_height="36dp"
-                        android:text="Edit"
-                        android:textSize="11sp"
-                        android:background="@drawable/logout_button_background"
-                        android:textColor="@color/white" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_media_play"
+                        android:contentDescription="Arrow Right"
+                        app:tint="#5C4B59" />
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
 
-    <!-- Bottom Navigation Bar -->
+            <View android:layout_width="match_parent" android:layout_height="24dp"/>
+
+            <!-- Location Section (major section 5) -->
+            <TextView
+                android:id="@+id/locationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Location"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#3A2E39"
+                android:layout_gravity="center_horizontal" />
+
+            <FrameLayout
+                android:id="@+id/locationCard"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="12dp"
+                android:background="#FFFFFF"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_dialog_map"
+                    android:contentDescription="Location Pin"
+                    app:tint="#C74B72" />
+            </FrameLayout>
+
+            <!-- spacer to ensure content not hidden behind bottom nav -->
+            <View android:layout_width="match_parent" android:layout_height="40dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bottom_nav_bg"
-        app:menu="@menu/bottom_menu"
-        app:labelVisibilityMode="labeled"
-        app:itemIconTint="@drawable/nav_item_color"
-        app:itemTextColor="@drawable/nav_item_color" />
-</LinearLayout>
+    android:id="@+id/bottomNav"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:background="#A64D79"
+    app:menu="@menu/bottom_nav_menu"
+    app:itemIconTint="@color/background_cream"
+    app:itemTextColor="@color/background_cream"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

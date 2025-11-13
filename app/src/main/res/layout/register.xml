@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#c64372"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <!-- Decorative Wave Image (Top) -->
 
@@ -101,9 +101,9 @@
     <!-- Forgot Password -->
 
 
-    <!-- Register Text -->
+    <!-- Login Text -->
     <TextView
-        android:id="@+id/tvRegister"
+        android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -111,11 +111,16 @@
         android:text="Here Before? Login"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
+        android:clickable="true"
+        android:focusable="true"
+        android:textStyle="bold"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:layout_marginEnd="32dp"

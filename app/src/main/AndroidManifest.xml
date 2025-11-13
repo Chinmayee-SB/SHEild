@@ -3,11 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sheild">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -18,24 +22,102 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SHEild">
-
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChannelsAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ChannelsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelplineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShareContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ContactsAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ShareLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PoliceStation"
+            android:exported="false" />
+        <activity
+            android:name=".NearbyStationsFragment"
+            android:exported="false" />
+        <activity
+            android:name=".MemberAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".StationsAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".NearbyStationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StationsNearby"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".NearbyUser"
+            android:exported="false" />
+        <activity
+            android:name=".CommunityActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBxqkj7wgaykBQKeWz9OMDOWi6abRBOnnM" /> <!-- COMMUNITY, CALL, OTHER ACTIVITIES -->
+        <!-- <activity -->
+        <!-- android:name=".CommunityActivity" -->
+        <!-- android:exported="false" /> -->
+        <!--  -->
+        <activity
+            android:name=".choosecaller"
+            android:exported="false" />
+        <activity
+            android:name=".fakecall"
+            android:exported="false" /> <!-- KEEP ONLY SPLASH AS LAUNCHER -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SHEild.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity android:name=".ProfileActivity" android:exported="false" />
-        <activity android:name=".RegisterActivity" android:exported="false" />
-        <activity android:name=".LoginActivity" android:exported="false" />
-        <activity android:name=".Home_Screen" android:exported="false" />
-        <activity android:name=".SOSActivity" />
-        <activity android:name=".FakeCallActivity" />
-        <activity android:name=".MapActivity" />
-        <activity android:name=".OngoingCallActivity" />
+        </activity> <!-- REMOVE INTENT-FILTER FROM MAINACTIVITY -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SOSActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IncomingCallActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OngoingCallActivity"
+            android:exported="false" /> <!-- GOOGLE MAP ACTIVITY (YOU USE IT IN CODE BUT IT WAS NOT IN MANIFEST) -->
+        <activity
+            android:name=".GoogleMapActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

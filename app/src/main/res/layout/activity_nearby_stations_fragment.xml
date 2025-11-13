@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragmentNearbyRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="@android:color/transparent">
+
+    <!-- RecyclerView that shows stations -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewStations"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+    <!-- Simple overlay text while loading / when empty -->
+    <TextView
+        android:id="@+id/textEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Finding nearby police..."
+        android:textColor="#7F8C8D"
+        android:visibility="visible" />
+
+</FrameLayout>

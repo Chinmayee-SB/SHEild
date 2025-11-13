@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FFF6EB">
+
+    <!-- Shield Icon -->
+    <ImageView
+        android:id="@+id/logo_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_shield_outline"
+        android:contentDescription="@string/app_name"
+        android:layout_marginBottom="24dp"
+        app:tint="#C64B6D" />
+
+    <!-- App Name -->
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHEild"
+        android:textColor="#C64B6D"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Tagline -->
+    <TextView
+        android:id="@+id/tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Every move, fearlessly yours."
+        android:textColor="#444444"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="4dp" />
+
+</LinearLayout>

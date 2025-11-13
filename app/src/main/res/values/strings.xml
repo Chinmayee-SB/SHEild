@@ -15,4 +15,5 @@
     <string name="edit_button">Edit</string>
     <string name="instant_access">Instant access to safety tools and info</string>
     <string name="dashboard_title">Your Safety Dashboard</string>
+    <string name="google_maps_key">AIzaSyBxqkj7wgaykBQKeWz9OMDOWi6abRBOnnM</string>
 </resources>

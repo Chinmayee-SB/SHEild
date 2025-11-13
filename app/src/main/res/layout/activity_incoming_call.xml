@@ -9,26 +9,26 @@
         android:id="@+id/callerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mom"
-        android:textSize="24sp"
+        android:textSize="34sp"
         android:textColor="@android:color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"/>
 
     <!-- Accept / Decline -->
 
+
     <TextView
         android:id="@+id/callerNumber"
         android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="140dp"
+        android:layout_marginStart="115dp"
         android:layout_marginTop="135dp"
-        android:layout_marginEnd="137dp"
-        android:layout_marginBottom="732dp"
+        android:layout_marginEnd="117dp"
         android:text="+91 9876543210"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
@@ -43,10 +43,10 @@
 
         <Button
             android:id="@+id/btnDecline"
-            android:layout_width="100dp"
+            android:layout_width="152dp"
             android:layout_height="100dp"
             android:backgroundTint="@android:color/holo_red_dark"
-            android:text="Decline"/>
+            android:text="Decline" />
 
         <Space
             android:layout_width="50dp"
@@ -54,10 +54,10 @@
 
         <Button
             android:id="@+id/btnAccept"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="100dp"
             android:backgroundTint="@android:color/holo_green_dark"
-            android:text="Accept"/>
+            android:text="Accept" />
     </LinearLayout>
 
 </RelativeLayout>
