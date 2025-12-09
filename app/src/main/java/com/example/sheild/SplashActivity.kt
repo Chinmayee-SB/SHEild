@@ -13,18 +13,22 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashActivity, LoginActivity::class.java)
+            val prefs = getSharedPreferences(Prefs.NAME, MODE_PRIVATE)
+            val isLoggedIn = prefs.getBoolean(Prefs.KEY_IS_LOGGED_IN, false)
 
-            // ✅ Use ActivityOptions for modern transitions
+            val destIntent = if (isLoggedIn) {
+                Intent(this@SplashActivity, MainActivity::class.java)
+            } else {
+                Intent(this@SplashActivity, LoginActivity::class.java)
+            }
+
             val options = ActivityOptions.makeCustomAnimation(
-                this@SplashActivity,   // context
-                R.anim.fade_in,        // enter animation
-                R.anim.fade_out        // exit animation
+                this@SplashActivity,
+                R.anim.fade_in,
+                R.anim.fade_out
             )
-
-            startActivity(intent, options.toBundle())  // <-- options.toBundle() works here
+            startActivity(destIntent, options.toBundle())
             finish()
-        }, 3000)
-
+        }, 1500) // optional shorter delay
     }
 }

@@ -23,10 +23,8 @@ class choosecaller : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var callerAdapter: CallerAdapter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_choose_caller)
 
         // After setContentView(R.layout.activity_choose_caller)

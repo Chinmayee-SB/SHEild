@@ -13,6 +13,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -20,8 +22,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.SHEild">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBxqkj7wgaykBQKeWz9OMDOWi6abRBOnnM" />
         <activity
             android:name=".ChatActivity"
             android:exported="false" />
@@ -112,7 +118,8 @@
             android:exported="false" />
         <activity
             android:name=".OngoingCallActivity"
-            android:exported="false" /> <!-- GOOGLE MAP ACTIVITY (YOU USE IT IN CODE BUT IT WAS NOT IN MANIFEST) -->
+            android:exported="false" />
+        <!-- GOOGLE MAP ACTIVITY (YOU USE IT IN CODE BUT IT WAS NOT IN MANIFEST) -->
         <activity
             android:name=".GoogleMapActivity"
             android:exported="false" />

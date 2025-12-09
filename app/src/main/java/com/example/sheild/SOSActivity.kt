@@ -1,14 +1,12 @@
 package com.example.sheild
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.provider.Settings
-import android.net.Uri
 import androidx.core.content.ContextCompat
 
 import android.telephony.SmsManager
@@ -18,7 +16,6 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import androidx.core.net.toUri
 import android.content.Context
 import android.location.LocationManager
 import android.app.AlertDialog // Use the standard Android AlertDialog
@@ -47,7 +44,9 @@ class SOSActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     // Emergency Contact details
-    private val EMERGENCY_PHONE = "7022195965"
+    private val SHARED_PREFS_NAME = "addProfile"
+    private val SOS_PHONE_KEY = "sos_phone"
+
     private val SOS_BASE_MESSAGE = "Good Morning , SOS Works. My location is:"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,11 +108,23 @@ class SOSActivity : AppCompatActivity() {
         return animatorSet
     }
 
+    private fun getEmergencyPhone(): String? {
+        val sharedPref = getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
+        // if not set, return null so caller can handle fallback
+        return sharedPref.getString(SOS_PHONE_KEY, null)
+    }
+
+
     // Add this function inside your SOSActivity class
     private fun checkLocationServiceStatusAndProceed() {
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         val isGpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         val isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+
+        val phone = getEmergencyPhone()
+        if (phone == null) {
+            Toast.makeText(this, "No SOS contact set. Go to Profile → Edit SOS Contact.", Toast.LENGTH_LONG).show()
+        }
 
         if (isGpsEnabled || isNetworkEnabled) {
             // Location services are ON, proceed with permission check and sending SMS
@@ -137,7 +148,8 @@ class SOSActivity : AppCompatActivity() {
             .setNegativeButton("Cancel") { dialog, which ->
                 // User cancelled, but we can still try to send a message without location
                 Toast.makeText(this, "Location services disabled. Sending SOS without location.", Toast.LENGTH_LONG).show()
-                sendSmsMessage(EMERGENCY_PHONE, "$SOS_BASE_MESSAGE Location unavailable.")
+                // fallback if not set
+                sendSmsMessage(getEmergencyPhone(), "$SOS_BASE_MESSAGE Location unavailable.")
                 dialog.dismiss()
             }
             .show()
@@ -188,23 +200,27 @@ class SOSActivity : AppCompatActivity() {
                         val fullMessage = "$SOS_BASE_MESSAGE $mapLink"
 
                         // Send the SMS with the location link
-                        sendSmsMessage(EMERGENCY_PHONE, fullMessage)
+                        // building fullMessage earlier:
+
+                        sendSmsMessage(getEmergencyPhone(), fullMessage)
+
+
                     } else {
                         // Location is null, send a message without coordinates
                         Toast.makeText(this, "Could not get location. Sending SOS without location.", Toast.LENGTH_LONG).show()
-                        sendSmsMessage(EMERGENCY_PHONE, "$SOS_BASE_MESSAGE Location unavailable.")
+                        sendSmsMessage(getEmergencyPhone(), "$SOS_BASE_MESSAGE Location unavailable.")
                     }
                 }
                 .addOnFailureListener { e ->
                     // Failed to get location (e.g., GPS is off)
                     Toast.makeText(this, "Location error: ${e.message}. Sending SOS without location.", Toast.LENGTH_LONG).show()
-                    sendSmsMessage(EMERGENCY_PHONE, "$SOS_BASE_MESSAGE Location unavailable.")
+                    sendSmsMessage(getEmergencyPhone()  , "$SOS_BASE_MESSAGE Location unavailable.")
                 }
         }
     }
 
     // --- SMS Sending (Modified from your original code) ---
-    private fun sendSmsMessage(phoneNumber: String, message: String) {
+    private fun sendSmsMessage(phoneNumber: String?, message: String) {
         // This function assumes SMS permission has already been checked by checkPermissionsAndSendSOS()
         try {
             val smsManager = SmsManager.getDefault()

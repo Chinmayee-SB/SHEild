@@ -162,14 +162,11 @@ class HelplineActivity : AppCompatActivity(), OnHelplineClickListener {
         val intent = Intent(Intent.ACTION_CALL).apply {
             data = Uri.parse("tel:$phoneNumber")
         }
-
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)
-        } else {
-            Toast.makeText(this, "No phone application found to handle the call.", Toast.LENGTH_SHORT).show()
+        } else { Toast.makeText(this, "No phone application found to handle the call.", Toast.LENGTH_SHORT).show()
         }
     }
-
     // Handle the result of the permission request
     override fun onRequestPermissionsResult(
         requestCode: Int,

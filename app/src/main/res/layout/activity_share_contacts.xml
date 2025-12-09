@@ -43,15 +43,68 @@
                 android:src="@drawable/ic_shield_outline"
                 android:contentDescription="Safety Shield Icon"/>
 
-            <!-- RecyclerView: make sure nestedScrollingEnabled=false (you had it earlier) -->
+            <!-- Add contact input row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <EditText
+                    android:id="@+id/edName"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:inputType="textPersonName"
+                    android:padding="12dp"
+                     />
+
+                <EditText
+                    android:id="@+id/edPhone"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone"
+                    android:inputType="phone"
+                    android:padding="12dp"
+                    android:layout_marginStart="8dp"
+                    />
+            </LinearLayout>
+
+            <!-- Add + Clear buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <Button
+                    android:id="@+id/btnAddContact"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Add"
+                    android:padding="12dp" />
+
+                <Button
+                    android:id="@+id/btnClearContacts"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Clear All"
+                    android:layout_marginStart="8dp"
+                    android:padding="12dp" />
+            </LinearLayout>
+
+            <!-- RecyclerView: nestedScrollingEnabled=false so it expands inside ScrollView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewCallers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
                 android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </LinearLayout>
     </ScrollView>

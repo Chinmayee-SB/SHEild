@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
     // For API communication (Retrofit)
     implementation("com.google.android.libraries.places:places:3.5.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

@@ -15,10 +15,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import android.widget.ImageButton
+import androidx.appcompat.app.AlertDialog
 
 class ProfileActivity : AppCompatActivity() {
 
     // --- START: Added for Image Logic ---
+    private val SOS_PHONE_KEY = "sos_phone"
     private lateinit var profileImageView: ImageView
     private var imageUri: Uri? = null
 
@@ -69,11 +71,8 @@ class ProfileActivity : AppCompatActivity() {
         val logout = findViewById<Button>(R.id.btnLogOut)
 
         val save = findViewById<Button>(R.id.btnSaveProfile)
-
         val sharedPref = getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
-
         var edit = sharedPref.edit()
-
         save.setOnClickListener {
             edit.putString("name", name.text.toString())
             edit.putString("password", password.text.toString())
@@ -84,16 +83,67 @@ class ProfileActivity : AppCompatActivity() {
             edit.apply()
             Toast.makeText(this, "Data Saved",Toast.LENGTH_LONG).show()
         }
-
         logout.setOnClickListener {
             performLogout()
         }
+        // inside ProfileActivity.onCreate (after existing setup)
+        val editSosBtn = findViewById<Button>(R.id.btnEditSOS)
 
+// Show current saved SOS number when opening dialog (optional)
+        editSosBtn.setOnClickListener {
+            showEditSosDialog()
+        }
         setupBottomNavigation()
     }
 
     // --- START: Added Helper Functions for Image Logic ---
 
+
+    private fun showEditSosDialog() {
+        val sharedPref = getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
+        val current = sharedPref.getString(SOS_PHONE_KEY, "") ?: ""
+
+        val input = EditText(this).apply {
+            hint = "Enter emergency phone (digits only)"
+            setText(current)
+            inputType = android.text.InputType.TYPE_CLASS_PHONE
+            setPadding(24, 16, 24, 16)
+        }
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Edit SOS Contact")
+            .setView(input)
+            .setPositiveButton("Save") { dialogInterface, _ ->
+                val entered = input.text.toString().trim()
+                if (entered.isEmpty()) {
+                    Toast.makeText(this, "Phone number cannot be empty", Toast.LENGTH_SHORT).show()
+                } else {
+                    // cleanup: keep only digits and + sign if present
+                    val sanitized = entered.filter { it.isDigit() || it == '+' }
+                    if (sanitized.length < 7) {
+                        Toast.makeText(this, "Enter a valid phone number", Toast.LENGTH_SHORT).show()
+                    } else {
+                        saveSosNumberToPrefs(sanitized)
+                        Toast.makeText(this, "SOS contact saved", Toast.LENGTH_SHORT).show()
+                        dialogInterface.dismiss()
+                    }
+                }
+            }
+            .setNegativeButton("Cancel") { d, _ -> d.dismiss() }
+            .create()
+
+        dialog.show()
+    }
+
+    private fun saveSosNumberToPrefs(number: String) {
+        val sharedPref = getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
+        sharedPref.edit().putString(SOS_PHONE_KEY, number).apply()
+    }
+
+    private fun getSosNumberFromPrefs(): String? {
+        val sharedPref = getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
+        return sharedPref.getString(SOS_PHONE_KEY, null)
+    }
     private fun persistUriAndSave(uri: Uri) {
         val flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
         try {
@@ -146,6 +196,9 @@ class ProfileActivity : AppCompatActivity() {
     private fun performLogout() {
         // Clear stored profile info (and any other session data you want)
         // **Recommendation: Add SharedPreferences clearing logic here**
+
+        val prefs = getSharedPreferences(Prefs.NAME, MODE_PRIVATE)
+        prefs.edit().clear().apply()
 
         // Navigate to login screen if you have one. Replace LoginActivity::class.java if different.
         val loginIntent = try {
